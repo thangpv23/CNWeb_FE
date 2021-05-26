@@ -223,4 +223,4 @@ về phía font-end:
 - mở login.html trên live server
 - đăng nhập hoặc đăng ký
 - màn hình chính sẽ hiễn thị lịch ngày tháng
-- có các chức năng thêm, sửa xoá sự kiện, hiển thị lịch âm dương, tìm kiếm sự kiện, follow acount khác ,
+- có các chức năng thêm, sửa xoá sự kiện, hiển thị lịch âm dương, tìm kiếm sự kiện, follow account khác ,
