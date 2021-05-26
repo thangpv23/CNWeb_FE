@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link href="login_style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="alert" class="">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Email or Password is incorrect.
+    </div>
+    <div id="success" class="">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Sign up success.
+    </div>
+
+    <div class="form-structor"  >
+        <form class="signup" >
+            <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+            <div class="form-holder">
+                <input class="input name" placeholder="Name" type="text" required />
+                <input class="input email" placeholder="Email" type="email" required />
+                <input class="input password" placeholder="Password" type="password" required />
+            </div>
+            <button class="submit-btn" type=“submit” onclick="reg(event)" >Sign up</button>
+        </form>
+        <form class="login slide-up" >
+            <div class="center">
+                <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+                <div class="form-holder">
+                    <input class="input email" placeholder="Email" type="email" required/>
+                    <input class="input password" placeholder="Password" type="password"  required/>
+                </div>
+                <button class="submit-btn" type=“submit” onclick="login(event)">Log in</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="login_scripts.js"></script>
+
+</body>
+</html>

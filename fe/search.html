@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
+
+  <body
+    style="
+      background: url(https://st4.depositphotos.com/16940446/39007/v/450/depositphotos_390071246-stock-illustration-green-white-gradient-soft-background.jpg);
+    "
+  >
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="navbar navbar-light col-md-1">
+          <a class="navbar-toggler" href="index.html">
+            <span class="navbar-toggler-icon"></span>
+          </a>
+        </nav>
+        <div class="col-md-0-5" style="margin-top: 0.5rem !important">
+          <img
+            src="./img/calendar.png"
+            alt="calendar"
+            style="height: 50px"
+            class="rounded"
+          />
+        </div>
+        <div
+          class="col-md-1-5 text-center"
+          style="margin-top: 0.5rem !important"
+        >
+          <h3 class="d-inline-block" style="margin-top: 10px">Calendar</h3>
+        </div>
+        <nav class="navbar navbar-light col-md-8">
+          <form class="form-inline" method="GET">
+            <input
+              class="form-control"
+              name="text"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              style="width: 80%"
+              onkeydown="showResult(this.value)"
+            />
+            <div id="live-search"></div>
+            <button class="btn btn-success my-2" type="submit">Search</button>
+          </form>
+        </nav>
+        <div class="col-md-1">
+          <div class="dropdown">
+            <img
+              src="./img/git.png"
+              alt="avatar"
+              style="
+                margin-top: 10px;
+                margin-left: 10px;
+                width: 70px;
+                border-radius: 80%;
+              "
+            />
+            <div class="dropdown-content">
+              <a href="#">Your Event</a>
+              <a href="follower.html">Follower Manager</a>
+              <a onclick="logout()">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main_cal">
+      <h3 class="text-center">Event Match:</h3>
+      <div class="row">
+        <div id="content"></div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+      const query = new URLSearchParams(window.location.search);
+      const text = query.get("text");
+    //   var myHeaders = new Headers();
+    //   myHeaders.append(
+    //     "Authorization",
+    //     "Bearer " + sessionStorage.getItem("token")
+    //   );
+    //   var requestOptions = {
+    //     method: "GET",
+    //     headers: myHeaders,
+    //     redirect: "follow",
+    //   };
+    //   fetch(`http://localhost:5000/events/search?text=${text}`, requestOptions)
+    //     .then((response) => response.text())
+    //     .then((result) => {
+    //       const json = JSON.parse(result);
+
+    //       let html = "";
+    //       json.forEach((item) => {
+    //         const t = `
+    //                 <div style="width: 50%; margin-left: 30%; margin-top: 30px;">
+    //                 <ul class="list-group">
+    //                   <li class="list-group-item ">Event Name:  ${
+    //                     item.name
+    //                   }</li>
+    //                   <li class="list-group-item">Time Start: ${new Date(
+    //                     item.startTime * 1000
+    //                   ).toLocaleTimeString()}</li>
+    //                   <li class="list-group-item">Time end: ${new Date(
+    //                     item.endTime * 1000
+    //                   ).toLocaleTimeString()}<</li>
+    //                   <li class="list-group-item">Description: ${
+    //                     item.description
+    //                   }</li>
+    //                  <li class="list-group-item">Day:  ${new Date(
+    //                    item.updateTime * 1000
+    //                  ).toLocaleDateString()}</li>
+    //               </ul> 
+    //                </div>
+    //                 `;
+    //         html = html + t;
+    //       });
+    //       document.getElementById("content").innerHTML = html;
+    //     })
+    //     .catch((error) => console.log("error", error));
+
+      var settings = {
+        url: `http://localhost:5000/events/search?text=${text}`,
+        method: "GET",
+        timeout: 0,
+        headers: {
+          Authorization:
+            `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        //const json = JSON.parse(response);
+
+          let html = "";
+          response.forEach((item) => {
+            const t = `
+                    <div style="width: 50%; margin-left: 30%; margin-top: 30px;">
+                    <ul class="list-group">
+                      <li class="list-group-item ">Event Name:  ${
+                        item.name
+                      }</li>
+                      <li class="list-group-item">Time Start: ${new Date(
+                        item.startTime * 1000
+                      ).toLocaleTimeString()}</li>
+                      <li class="list-group-item">Time end: ${new Date(
+                        item.endTime * 1000
+                      ).toLocaleTimeString()}<</li>
+                      <li class="list-group-item">Description: ${
+                        item.description
+                      }</li>
+                     <li class="list-group-item">Day:  ${new Date(
+                       item.updateTime * 1000
+                     ).toLocaleDateString()}</li>
+                  </ul> 
+                   </div>
+                    `;
+            html = html + t;
+          });
+          document.getElementById("content").innerHTML = html;
+      });
+      function logout() {
+        console.log('logout')
+        sessionStorage.setItem("token", 0);
+        sessionStorage.setItem("uid", 0)
+        window.location.href = 'login.html'
+      }
+    </script>
+  </body>
+</html>

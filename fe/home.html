@@ -8,28 +8,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./index.css">
 </head>
-<body style="background: url(https://st4.depositphotos.com/16940446/39007/v/450/depositphotos_390071246-stock-illustration-green-white-gradient-soft-background.jpg);">
+
+<body
+    style="background: url(https://st4.depositphotos.com/16940446/39007/v/450/depositphotos_390071246-stock-illustration-green-white-gradient-soft-background.jpg);">
     <div class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-light col-md-1">
-                <a class="navbar-toggler" href="index.html" >
+                <a class="navbar-toggler" href="index.html">
                     <span class="navbar-toggler-icon"></span>
                 </a>
             </nav>
-            <div class="col-md-6 " style=" margin-top: 0.5rem !important;">
-                <img src="http://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_8_2x.png#" class="d-inline-block"  lt="" style="height: 50px;  margin-top: 0.5rem !important;" >
-                <h3 class="d-inline-block " style="margin-left: 1.5rem !important;">Calendar</h3>
-            </div>   
-
+            <div class="col-md-0-5" style=" margin-top: 0.5rem !important;">
+                <img src="./img/calendar.png" alt="calendar" style="height: 50px;" class="rounded">
+            </div>
+            <div class="col-md-1-5 text-center " style=" margin-top: 0.5rem !important;">
+                <h3 class="d-inline-block " style="margin-top: 10px;">Calendar</h3>
+            </div>
+            <nav class="navbar navbar-light col-md-8">
+                <form class="form-inline" method="GET" action="search.html">
+                    <input class="form-control " name="text" type="search" placeholder="Search" aria-label="Search"
+                        style="width: 80%" onkeydown="showResult(this.value)">
+                    <div id="live-search"></div>
+                    <button class="btn btn-success my-2 " type="submit">Search</button>
+                </form>
+            </nav>
+            <div class="col-md-1">
+                <div class="dropdown">
+                    <img src="./img/git.png" alt="avatar"
+                        style=" margin-top: 10px; margin-left: 10px;  width: 70px; border-radius: 80%;">
+                    <div class="dropdown-content">
+                        <a href="#">Your Event</a>
+                        <a href="follower.html">Follower Manager</a>
+                        <a onclick="logout()">Sign out</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container-fluid" style=" margin-top: 1rem !important; ">
         <div class="row ">
-            <div class="col-md-3 card">
-                <h3 class="card-header" id="monthAndYear"></h3>
+            <div class="col-md-12 card">
+                <select class="form-control " name="calendar" id="calendar" style="width: 10%; margin-left: 2%;"
+                    onchange="next2()">
+                    <option value="SolarCalendar">Solar Calendar</option>
+                    <option value="LunarCalendar">Lunar Calendar</option>
+                </select>
+                <h3 class="card-header text-center " id="monthAndYear" style="margin: 20px; "></h3>
                 <table class="table table-bordered table-responsive-sm table-info" id="calendar">
                     <thead>
-                        <tr>
+                        <tr class="bg-danger">
                             <th>Sun</th>
                             <th>Mon</th>
                             <th>Tue</th>
@@ -39,16 +66,17 @@
                             <th>Sat</th>
                         </tr>
                     </thead>
-                    <tbody id="calendar-body"> </tbody>
+                    <tbody id="calendar-body-3"> </tbody>
                 </table>
-                <div class="form-inline">
-                    <button class="btn btn-outline-secondary col-sm-6" id="previous" onclick="previous()">Previous</button>
-
-                    <button class="btn btn-outline-secondary col-sm-6" id="next" onclick="next()">Next</button>
+                <div class="form-inline" style="margin-left: 30%; ">
+                    <button class="btn btn-outline-secondary col-sm-6  " id="previous" onclick="previous()"
+                        style="padding-left:70px; padding-right: 70px;">Previous</button>
+                    <button class="btn btn-outline-secondary col-sm-6 " id="next" onclick="next()"
+                        style="padding-left:100px; padding-right: 100px;">Next</button>
                 </div>
                 <br />
                 <form class="form-inline">
-                    <label class="lead" style="margin: 0.5rem !important;" for="month">Jump To: </label>
+                    <label class="lead" style="margin-left: 20%; color:blue;" for="month">Jump To: </label>
                     <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
                         <option value=0>Jan</option>
                         <option value=1>Feb</option>
@@ -109,27 +137,16 @@
                     </select>
                 </form>
             </div>
-            <div class="col-md-9 card">
-                <h3 class="card-header" id="monthAndYear"></h3>
-                <table class="table table-bordered table-responsive-sm " id="calendar">
-                    <thead>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-body2"></tbody>
-                </table>
-            </div>
         </div>
     </div>
-    <script src="scripts.js">
-        
-    </script>
+    <footer class="container-fluid fixed-bottom" style="background-color: white; padding: 10px;">
+        <div class="row">
+            <div class="col-md-12 text-center" style="color: tomato;">
+                @Copyright: Group23
+            </div>
+        </div>
+    </footer>
+    <script src="convertToLunarYear.js"></script>
 </body>
+
 </html>

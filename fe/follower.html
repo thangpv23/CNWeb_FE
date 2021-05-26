@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+</head>
+
+<body style="
+      background: url(https://st4.depositphotos.com/16940446/39007/v/450/depositphotos_390071246-stock-illustration-green-white-gradient-soft-background.jpg);
+    ">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-light col-md-1">
+                <a class="navbar-toggler" href="index.html">
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+            </nav>
+            <div class="col-md-0-5" style="margin-top: 0.5rem !important">
+                <img src="./img/calendar.png" alt="calendar" style="height: 50px" class="rounded" />
+            </div>
+            <div class="col-md-1-5 text-center" style="margin-top: 0.5rem !important">
+                <h3 class="d-inline-block" style="margin-top: 10px">Calendar</h3>
+            </div>
+            <nav class="navbar navbar-light col-md-8">
+                <form class="form-inline" method="GET">
+                    <input class="form-control" name="text" type="search" placeholder="Search" aria-label="Search"
+                        style="width: 80%" onkeydown="showResult(this.value)" />
+                    <div id="live-search"></div>
+                    <button class="btn btn-success my-2" type="submit">Search</button>
+                </form>
+            </nav>
+            <div class="col-md-1">
+                <div class="dropdown">
+                    <img src="./img/git.png" alt="avatar" style="
+                margin-top: 10px;
+                margin-left: 10px;
+                width: 70px;
+                border-radius: 80%;
+              " />
+                    <div class="dropdown-content">
+                        <a href="#">Your Event</a>
+                        <a href="#">Follower Manager</a>
+                        <a onclick="logout()">Sign out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin-top: 50px;">
+        <div class="row" style="margin-left: 10px; margin-right: 10px;">
+            <div class="col-md-4 card" >
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="./img/git.png" alt="avatar" style="
+                margin-top: 30px;
+                width: 60px;
+                border-radius: 100%;
+              " />
+                    </div>
+                    <div class="col-md-8">
+                        <div id="name">
+                            <!-- show name and email in here -->
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:20px ;">
+                    <h4>Following: </h4>
+                </div>
+                <div id="following">
+                <!-- show  following acount in here -->
+                </div> 
+            </div>
+            <div class="col-md-4 card " >
+                <h4 style="margin-top: 30px;">Follow Requests:  </h4>
+                <div id="follow-request">
+                    <!-- show all follow requests in here -->
+                </div>
+            </div>
+            <div class="col-md-4 card">
+                <h4 style="margin-top: 30px;">Recommend for you:  </h4>
+                <div id="remomend-user">
+                    <!-- show recommend user -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
